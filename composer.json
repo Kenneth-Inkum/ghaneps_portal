@@ -7,6 +7,7 @@
     "require": {
         "php": "^8.0.2",
         "buildix/timex": "^1.1",
+        "dutchcodingcompany/filament-socialite": "^0.2.3",
         "filament/filament": "^2.16",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.19",
@@ -14,6 +15,7 @@
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
         "livewire/livewire": "^2.11",
+        "owenvoke/blade-fontawesome": "^2.1",
         "phpsa/filament-authentication": "^2.3"
     },
     "require-dev": {
