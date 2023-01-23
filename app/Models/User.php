@@ -5,9 +5,11 @@ namespace App\Models;
 use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
 use Laravel\Jetstream\HasProfilePhoto;
-use Illuminate\Notifications\Notifiable;
-use Filament\Models\Contracts\FilamentUser;
+use Spatie\Permission\Traits\HasRoles;
 use Filament\Models\Contracts\HasAvatar;
+use Illuminate\Notifications\Notifiable;
+use Lab404\Impersonate\Models\Impersonate;
+use Filament\Models\Contracts\FilamentUser;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -19,6 +21,8 @@ class User extends Authenticatable implements FilamentUser, HasAvatar
     use HasFactory;
     use HasProfilePhoto;
     use HasTeams;
+    use HasRoles;
+    use Impersonate;
     use Notifiable;
     use TwoFactorAuthenticatable;
 
