@@ -7,12 +7,13 @@ use Laravel\Sanctum\HasApiTokens;
 use Laravel\Jetstream\HasProfilePhoto;
 use Illuminate\Notifications\Notifiable;
 use Filament\Models\Contracts\FilamentUser;
+use Filament\Models\Contracts\HasAvatar;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable implements FilamentUser
+class User extends Authenticatable implements FilamentUser, HasAvatar
 {
     use HasApiTokens;
     use HasFactory;
@@ -63,5 +64,10 @@ class User extends Authenticatable implements FilamentUser
     public function canAccessFilament(): bool
     {
         return str_ends_with($this->email, '@ghaneps.com') && $this->hasVerifiedEmail();
+    }
+
+    public function getFilamentAvatarUrl(): ?string
+    {
+        return $this->avatar_url;
     }
 }
