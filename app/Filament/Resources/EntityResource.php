@@ -33,7 +33,9 @@ class EntityResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('entity'),
+                Tables\Columns\TextColumn::make('entity')
+                    ->sortable()
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime('dS M Y'),
                 Tables\Columns\TextColumn::make('updated_at')

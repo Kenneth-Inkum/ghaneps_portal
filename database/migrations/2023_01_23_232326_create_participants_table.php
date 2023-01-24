@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('firstname');
             $table->string('lastname');
             $table->string('phone');
-            $table->boolean('whatsapp_number');
+            $table->string('whatsapp_number');
             $table->string('email');
             $table->string('session');
             $table->timestamps();

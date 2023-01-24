@@ -17,7 +17,7 @@ class EntityCategoryResource extends Resource
 {
     protected static ?string $model = EntityCategory::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-tag';
 
     public static function form(Form $form): Form
     {
@@ -35,8 +35,13 @@ class EntityCategoryResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('entity.entity'),
-                Tables\Columns\TextColumn::make('entity_category'),
+                Tables\Columns\TextColumn::make('entity_category')
+                    ->label('Entity Category')
+                    ->sortable()
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('entity.entity')
+                    ->sortable()
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime('dS M Y'),
                 Tables\Columns\TextColumn::make('updated_at')

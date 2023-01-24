@@ -182,7 +182,7 @@ return [
     */
 
     'categories' => [
-            'isModelEnabled' => false,
+            'isModelEnabled' => true,
     /*
     |--------------------------------------------------------------------------
     | Category Model
@@ -206,21 +206,21 @@ return [
         |--------------------------------------------------------------------------
         */
             'labels' => [
-                'primary' => 'Procurement Officers',
-                'secondary' => 'Managers',
-                // 'danger' => 'Danger category',
-                'success' => 'Executives',
+                'primary' => 'Primary category',
+                'secondary' => 'Secondary category',
+                'danger' => 'Danger category',
+                'success' => 'Success category',
             ],
             'icons' => [
                 'primary' => 'heroicon-o-clipboard',
                 'secondary' => 'heroicon-o-bookmark',
-                // 'danger' => 'heroicon-o-flag',
+                'danger' => 'heroicon-o-flag',
                 'success' => 'heroicon-o-badge-check',
             ],
             'colors' => [
                 'primary' => 'primary',
                 'secondary' => 'secondary',
-                // 'danger' => 'danger',
+                'danger' => 'danger',
                 'success' => 'success',
             ],
     ],
