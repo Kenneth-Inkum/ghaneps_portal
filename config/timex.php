@@ -39,12 +39,12 @@ return [
     */
 
     'week' => [
-        'start' => Carbon::MONDAY,
-        'end' =>  Carbon::SUNDAY
+        'start' => Carbon::SUNDAY,
+        'end' =>  Carbon::SATURDAY
     ],
     'isDayClickEnabled' => true,
 
-    'dayName' => 'minDayName', // minDayName or dayName or shortDayName
+    'dayName' => 'shortDayName', // minDayName or dayName or shortDayName
 
     'dropDownCols' => 3,
 
@@ -63,7 +63,7 @@ return [
     'pages' => [
         'timex' => \Buildix\Timex\Pages\Timex::class,
         'slug' => 'timex',
-        'group' => 'timex',
+        'group' => 'Training & Events Calendar',
         'sort' => 0,
         'shouldRegisterNavigation' => true,
         'enablePolicy' => false,

@@ -9,6 +9,7 @@
         "buildix/timex": "^1.1",
         "dutchcodingcompany/filament-socialite": "^0.2.3",
         "filament/filament": "^2.16",
+        "filament/spatie-laravel-settings-plugin": "^2.16",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.19",
         "laravel/jetstream": "^2.16",
@@ -19,6 +20,7 @@
         "phpsa/filament-authentication": "^2.3"
     },
     "require-dev": {
+        "doctrine/dbal": "^3.5",
         "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.0.1",
