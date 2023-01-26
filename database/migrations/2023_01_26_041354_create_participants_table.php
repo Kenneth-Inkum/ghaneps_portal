@@ -15,13 +15,12 @@ return new class extends Migration
     {
         Schema::create('participants', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('entity_name_id')->nullable()->contrained();
+            $table->foreignId('entity_id')->nullable()->contrained();
             $table->string('firstname');
             $table->string('lastname');
             $table->string('phone');
             $table->string('whatsapp_number');
             $table->string('email');
-            $table->string('session');
             $table->timestamps();
             $table->softDeletes();
         });

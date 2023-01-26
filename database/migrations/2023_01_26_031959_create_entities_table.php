@@ -13,11 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('entity_names', function (Blueprint $table) {
+        Schema::create('entities', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->nullable()->contrained();
-            $table->foreignId('entity_category_id')->nullable()->constrained();
             $table->string('entity_name');
+            $table->string('entity_type');
+            // $table->foreignId('team_leader_id')->nullable()->constrained();
+            $table->uuid('timex_event_id')->nullable()->constrained();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -30,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('entity_names');
+        Schema::dropIfExists('entities');
     }
 };

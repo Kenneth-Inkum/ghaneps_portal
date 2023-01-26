@@ -16,10 +16,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call([
-            // EntitySeeder::class,
-            EntityCategory::class,
-        ]);
+        // $this->call([
+        //     EntitySeeder::class,
+        //     EntityCategory::class,
+        // ]);
 
         // \App\Models\User::factory(10)->create();
 
