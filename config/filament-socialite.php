@@ -18,20 +18,20 @@ return [
         //            'label' => 'GitLab',
         //            'icon' => 'fab-gitlab',
         //        ],
-        'github' => [
-            'label' => 'GitHub',
-            'icon' => 'fab-github',
-        ],
+        // 'github' => [
+        //     'label' => 'GitHub',
+        //     'icon' => 'fab-github',
+        // ],
 
-        'google' => [
-            'label' => 'Google',
-            'icon' => 'fab-google',
-        ],
+        // 'google' => [
+        //     'label' => 'Google',
+        //     'icon' => 'fab-google',
+        // ],
 
-        'facebook' => [
-            'label' => 'Facebook',
-            'icon' => 'fab-facebook',
-        ],
+        // 'facebook' => [
+        //     'label' => 'Facebook',
+        //     'icon' => 'fab-facebook',
+        // ],
 
     ],
 

@@ -1,32 +1,25 @@
 <?php
 
-namespace App\Filament\Resources;
+namespace App\Filament\Resources\EntityResource\RelationManagers;
 
-use App\Filament\Resources\ParticipantResource\Pages;
-use App\Filament\Resources\ParticipantResource\RelationManagers;
-use App\Models\Participant;
 use Filament\Forms;
 use Filament\Resources\Form;
-use Filament\Resources\Resource;
+use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class ParticipantResource extends Resource
+class ParticipantRelationManager extends RelationManager
 {
-    protected static ?string $model = Participant::class;
+    protected static string $relationship = 'Participant';
 
-    protected static ?string $navigationIcon = 'heroicon-o-users';
-
-    protected static ?string $navigationGroup = 'Registration';
+    protected static ?string $recordTitleAttribute = 'entity.entity_id';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                // Forms\Components\TextInput::make('entity_id'),
-                // ->label('Entity Name'),
                 Forms\Components\Select::make('entity_id')
                     ->relationship('Entity', 'entity_name')
                     // ->disabled()
@@ -49,6 +42,7 @@ class ParticipantResource extends Resource
                     ->email()
                     ->required()
                     ->maxLength(255),
+
             ]);
     }
 
@@ -82,6 +76,9 @@ class ParticipantResource extends Resource
             ->filters([
                 //
             ])
+            ->headerActions([
+                Tables\Actions\CreateAction::make(),
+            ])
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\DeleteAction::make(),
@@ -89,21 +86,5 @@ class ParticipantResource extends Resource
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
-    }
-
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
-
-    public static function getPages(): array
-    {
-        return [
-            'index' => Pages\ListParticipants::route('/'),
-            'create' => Pages\CreateParticipant::route('/create'),
-            'edit' => Pages\EditParticipant::route('/{record}/edit'),
-        ];
     }
 }

@@ -155,8 +155,8 @@ return [
     'models' => [
         'event' => \Buildix\Timex\Models\Event::class,
         'users' => [
-            'model' => \App\Models\User::class,
-            'name' => 'name',
+            'model' => \App\Models\Entity::class,
+            'name' => 'entity_name',
             'id' => 'id',
         ],
     ],
