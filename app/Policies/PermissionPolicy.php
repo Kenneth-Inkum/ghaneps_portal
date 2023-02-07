@@ -18,7 +18,7 @@ class PermissionPolicy
      */
     public function viewAny(User $user)
     {
-        return $user->hasAnyRole(['super-admin', 'admin', 'manager']);
+        return $user->hasAnyRole(['super-admin', 'admin']);
     }
 
     /**
@@ -30,7 +30,7 @@ class PermissionPolicy
      */
     public function view(User $user, Permission $permission)
     {
-        return $user->hasAnyRole(['super-admin', 'admin', 'manager']);
+        return $user->hasAnyRole(['super-admin', 'admin']);
     }
 
     /**

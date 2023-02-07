@@ -32,7 +32,7 @@ class FilamentServiceProvider extends ServiceProvider
             // Filament::registerViteTheme('resources/css/filament.css');
 
             if(auth()->user()){
-                if (auth()->user()->hasAnyRole(['super-admin', 'admin', 'manager'])) {
+                if (auth()->user()->hasAnyRole(['super-admin', 'admin'])) {
                     Filament::registerUserMenuItems([
                         UserMenuItem::make()
                             ->label('Manage Users')
