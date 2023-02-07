@@ -3,19 +3,20 @@
 namespace App\Filament\Resources;
 
 use Filament\Forms;
+use App\Models\User;
 use Filament\Tables;
 use App\Models\Entity;
 use Filament\Resources\Form;
 use Filament\Resources\Table;
+use Buildix\Timex\Models\Event;
 use Filament\Resources\Resource;
 use Illuminate\Database\Eloquent\Builder;
+use Buildix\Timex\Resources\EventResource;
 use Filament\Tables\Filters\TrashedFilter;
 use App\Filament\Resources\EntityResource\Pages;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\EntityResource\RelationManagers;
 use App\Filament\Resources\EntityResource\RelationManagers\ParticipantRelationManager;
-use Buildix\Timex\Models\Event;
-use Buildix\Timex\Resources\EventResource;
 
 class EntityResource extends Resource
 {
@@ -41,18 +42,19 @@ class EntityResource extends Resource
                         'Private Institution' => 'Private Institution',
                     ]),
                 Forms\Components\Select::make('user_id')
-                    ->relationship('user', 'name')
+                    // ->relationship('user', 'name')
+                    ->options(User::query()->where('is_admin', '=', 0)->pluck('name', 'id'))
                     ->label('Team Leader'),
                 Forms\Components\Select::make('timex_event_id')
                     ->relationship('timexEvent', 'subject')
                     ->label('Preferred Session'),
-                Forms\Components\Select::make('participants')
-                    ->label(trans('timex::timex.event.participants'))
-                    ->options(function () {
-                        return EventResource::getUserModel()::all()
-                        ->pluck(EventResource::getUserModelColumn('name'),EventResource::getUserModelColumn('id'));
-                    })
-                    ->multiple()->columnSpanFull()->hidden(!in_array('participants',\Schema::getColumnListing(EventResource::getEventTableName()))),
+                // Forms\Components\Select::make('participants')
+                //     ->label(trans('timex::timex.event.participants'))
+                //     ->options(function () {
+                //         return EventResource::getUserModel()::all()
+                //         ->pluck(EventResource::getUserModelColumn('name'),EventResource::getUserModelColumn('id'));
+                //     })
+                //     ->multiple()->columnSpanFull()->hidden(!in_array('participants',\Schema::getColumnListing(EventResource::getEventTableName()))),
 
 
                 // Forms\Components\Group::make()

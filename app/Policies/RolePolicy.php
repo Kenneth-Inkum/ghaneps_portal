@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
+use App\Models\Role;
 use App\Models\User;
-use Spatie\Permission\Models\Permission;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class PermissionPolicy
+class RolePolicy
 {
     use HandlesAuthorization;
 
@@ -18,19 +18,19 @@ class PermissionPolicy
      */
     public function viewAny(User $user)
     {
-        return $user->hasAnyRole(['super-admin', 'admin', 'manager']);
+        //
     }
 
     /**
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \Spatie\Permission\Models\Permission  $permission
+     * @param  \App\Models\Role  $role
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Permission $permission)
+    public function view(User $user, Role $role)
     {
-        return $user->hasAnyRole(['super-admin', 'admin', 'manager']);
+        //
     }
 
     /**
@@ -41,41 +41,41 @@ class PermissionPolicy
      */
     public function create(User $user)
     {
-        return $user->hasAnyRole(['super-admin', 'admin']);
+        //
     }
 
     /**
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \Spatie\Permission\Models\Permission  $permission
+     * @param  \App\Models\Role  $role
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, Permission $permission)
+    public function update(User $user, Role $role)
     {
-        return $user->hasAnyRole(['super-admin', 'admin']);
+        //
     }
 
     /**
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \Spatie\Permission\Models\Permission  $permission
+     * @param  \App\Models\Role  $role
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, Permission $permission)
+    public function delete(User $user, Role $role)
     {
-        return $user->hasAnyRole(['super-admin', 'admin']);
+        //
     }
 
     /**
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \Spatie\Permission\Models\Permission  $permission
+     * @param  \App\Models\Role  $role
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, Permission $permission)
+    public function restore(User $user, Role $role)
     {
         //
     }
@@ -84,10 +84,10 @@ class PermissionPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \Spatie\Permission\Models\Permission  $permission
+     * @param  \App\Models\Role  $role
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, Permission $permission)
+    public function forceDelete(User $user, Role $role)
     {
         //
     }
